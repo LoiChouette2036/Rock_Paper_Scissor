@@ -24,7 +24,11 @@ function getPlayerSelection (){
 
 
 
-function playRound(playerSelection, computerSelection){
+function playRound(){
+
+    let playerSelection = getPlayerSelection();
+    let computerSelection = getComputerChoice();
+
     // Convert playerSelection to lowercase for case-insensitive comparison
     let lowerCaseSelection = playerSelection.toLowerCase();
 
