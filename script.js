@@ -127,3 +127,5 @@ function game(){
     }
 
 }
+
+//ceci est pour oir si tout marche
