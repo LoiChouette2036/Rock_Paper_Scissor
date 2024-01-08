@@ -21,33 +21,42 @@ function playRound(playerSelection, computerSelection){
     switch (lowerCaseSelection){
         case "rock":
             if(computerSelection === "Paper"){
+                console.log("You lose! Paper beats Rock");
                 return 0;
             } else if (computerSelection === "Scissor"){
+                console.log("You Win! Rock beats Scissor");
                 return 1;
             } else if (computerSelection === "Rock"){
-                return 2;
+                console.log("It's tie !");
+                return 0;
             } else{
                 console.log("Il y a un problème il faut recommencer");
                 break;
             }
         case "paper":
             if (computerSelection === "Rock"){
+                console.log("You Win! Paper beats Rock");
                 return 1;
             } else if (computerSelection === "Scissor"){
+                console.log("You lose! Scissor beats paper");
                 return 0;
             } else if (computerSelection === "Paper"){
-                return 2;
+                console.log("It's a tie!");
+                return 0;
             } else {
                 console.log("Il y a un problème il faut recommencer");
                 break;
             }
         case "rock":
             if(computerSelection === "Paper"){
+                console.log("You lose! Paper beats Rock");
                 return 0;
             } else if (computerSelection === "Scissor"){
+                console.log("You Win! rock beats scissors");
                 return 1;
             } else if (computerSelection === "Rock"){
-                return 2;
+                console.log("It's a tie!");
+                return 0;
             } else {
                 console.log("Il y a un problème, il faut recommencer");
                 break;
