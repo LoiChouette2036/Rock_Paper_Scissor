@@ -11,12 +11,22 @@ function getComputerChoice (){
     return choicesRandom;
 }
 
+function getPlayerSelection (){
+    var answer = prompt("Write between these 3 : Rock, Paper, Scissor");
+    //if (answer === null || answer === "") {
+    //    alert("you wrote nothing");
+    //  } else {
+    //  alert("you wrote: " + answer);
+    //  }
+    return answer;
+}
+
+
+
+
 function playRound(playerSelection, computerSelection){
     // Convert playerSelection to lowercase for case-insensitive comparison
     let lowerCaseSelection = playerSelection.toLowerCase();
-
-    // initize variable for winner
-    let win ;
 
     switch (lowerCaseSelection){
         case "rock":
@@ -47,14 +57,14 @@ function playRound(playerSelection, computerSelection){
                 console.log("Il y a un problème il faut recommencer");
                 break;
             }
-        case "rock":
+        case "scissor":
             if(computerSelection === "Paper"){
-                console.log("You lose! Paper beats Rock");
-                return 0;
-            } else if (computerSelection === "Scissor"){
-                console.log("You Win! rock beats scissors");
+                console.log("You Win! Scissor beats paper");
                 return 1;
             } else if (computerSelection === "Rock"){
+                console.log("You lose! Rock beats scissor");
+                return 0;
+            } else if (computerSelection === "Scissor"){
                 console.log("It's a tie!");
                 return 0;
             } else {
@@ -64,3 +74,4 @@ function playRound(playerSelection, computerSelection){
 
     }
 }
+
