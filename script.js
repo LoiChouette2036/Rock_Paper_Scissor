@@ -31,6 +31,8 @@ let roundWinner = document.getElementById("roundWinner");
 
 function playRound(getPlayerSelection){
 
+    roundWinner.innerHTML = "";
+
     let playerSelection = getPlayerSelection;/*getPlayerSelection();*/
     let computerSelection = getComputerChoice();
 
@@ -95,7 +97,24 @@ function playRound(getPlayerSelection){
     }
 }
 
-
+function announceWinner (){
+    if(playerScore > computerScore){
+        roundWinner.innerHTML = "<br>Result : You Win !";
+        roundsPlayed = 0;
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore > playerScore) {
+        roundWinner.innerHTML = "<br>Result : You Lose!";
+        roundsPlayed = 0;
+        playerScore = 0;
+        computerScore = 0;
+    } else {
+        roundWinner.innerHTML = "<br>Result : It's a Tie";
+        roundsPlayed = 0;
+        playerScore = 0;
+        computerScore = 0;
+    }
+}
 
 
 
@@ -166,16 +185,7 @@ myButton1.addEventListener("click",function(){
     playRound("Scissor");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
     if (roundsPlayed === 5){
-        if(playerScore > computerScore){
-            roundWinner.innerHTML = "Result : You Win !";
-            roundsPlayed = 0;
-        } else if (computerScore > playerScore) {
-            roundWinner.innerHTML = "Result : You Lose!";
-            roundsPlayed = 0;
-        } else {
-            roundWinner.innerHTML = "Result : It's a Tie";
-            roundsPlayed = 0;
-        }
+        announceWinner();
     }
 });
 
@@ -184,16 +194,7 @@ myButton2.addEventListener("click",function (){
     playRound("Rock");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
     if (roundsPlayed === 5){
-        if(playerScore > computerScore){
-            roundWinner.innerHTML = "Result : You Win !";
-            roundsPlayed = 0;
-        } else if (computerScore > playerScore) {
-            roundWinner.innerHTML = "Result : You Lose!";
-            roundsPlayed = 0;
-        } else {
-            roundWinner.innerHTML = "Result : It's a Tie";
-            roundsPlayed = 0;
-        }
+       announceWinner();
     }
 });
 
@@ -201,16 +202,7 @@ myButton3.addEventListener("click",function(){
     playRound("Paper");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
     if (roundsPlayed === 5){
-        if(playerScore > computerScore){
-            roundWinner.innerHTML = "Result : You Win !";
-            roundsPlayed = 0;
-        } else if (computerScore > playerScore) {
-            roundWinner.innerHTML = "Result : You Lose!";
-            roundsPlayed = 0;
-        } else {
-            roundWinner.innerHTML = "Result : It's a Tie";
-            roundsPlayed = 0;
-        }
+       announceWinner();
     }
 });
 
