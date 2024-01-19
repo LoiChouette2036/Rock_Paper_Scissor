@@ -22,7 +22,11 @@ function getComputerChoice (){
 }*/
 
 
+var playerScore = 0;
+var computerScore = 0;
+var roundsPlayed = 0;
 
+let scoreContainer = document.getElementById("scoreContainer");
 
 function playRound(getPlayerSelection){
 
@@ -38,48 +42,61 @@ function playRound(getPlayerSelection){
         case "rock":
             if(computerSelection === "Paper"){
                 resultContainer.innerHTML = "You lose! Paper beats Rock";
-                return 0;
+                computerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Scissor"){
                 resultContainer.innerHTML = "You Win! Rock beats Scissor";
-                return 1;
+                playerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Rock"){
                 resultContainer.innerHTML = "It's tie !";
-                return 2;
+                roundsPlayed ++;
             } else{
                 resultContainer = "Il y a un problème il faut recommencer";
                 break;
             }
+            break;
         case "paper":
             if (computerSelection === "Rock"){
                 resultContainer.innerHTML = "You Win! Paper beats Rock";
-                return 1;
+                playerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Scissor"){
                 resultContainer.innerHTML = "You lose! Scissor beats paper";
-                return 0;
+                computerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Paper"){
                 resultContainer.innerHTML = "It's a tie!";
-                return 2;
+                roundsPlayed ++;
             } else {
                 resultContainer.innerHTML = "Il y a un problème il faut recommencer";
                 break;
             }
+            break;
         case "scissor":
             if(computerSelection === "Paper"){
                 resultContainer.innerHTML = "You Win! Scissor beats paper";
-                return 1;
+                playerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Rock"){
                 resultContainer.innerHTML = "You lose! Rock beats scissor";
-                return 0;
+                computerScore ++;
+                roundsPlayed ++;
             } else if (computerSelection === "Scissor"){
                 resultContainer.innerHTML = "It's a tie!";
-                return 2;
+                roundsPlayed ++;
             } else {
                 resultContainer.innerHTML = "Il y a un problème, il faut recommencer";
                 break;
             }
+            break;
 
     }
 }
+
+
+
+
 
 /*function game(){
     //initalize array for the result of the previous round
@@ -132,6 +149,7 @@ function playRound(getPlayerSelection){
 */
 //ceci est pour oir si tout marche
 
+
 // Créer un élément de bouton
 var myButton1 = document.createElement("button");
 var myButton2 = document.createElement("button");
@@ -145,15 +163,22 @@ myButton3.innerHTML = "Paper";
 // Ajouter un gestionnaire d'événements (par exemple, un clic)
 myButton1.addEventListener("click",function(){
     playRound("Scissor");
+    scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
+    if (roundsPlayed === 5){
+        
+    }
 });
+
 
 myButton2.addEventListener("click",function (){
     playRound("Rock");
-})
+    scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
+});
 
 myButton3.addEventListener("click",function(){
     playRound("Paper");
-})
+    scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
+});
 
 var buttonContainer = document.getElementById("buttonContainer");
 buttonContainer.appendChild(myButton1);
