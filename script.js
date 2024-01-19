@@ -11,7 +11,7 @@ function getComputerChoice (){
     return choicesRandom;
 }
 
-function getPlayerSelection (){
+/*function getPlayerSelection (){
     var answer = prompt("Write between these 3 : Rock, Paper, Scissor");
     //if (answer === null || answer === "") {
     //    alert("you wrote nothing");
@@ -19,15 +19,17 @@ function getPlayerSelection (){
     //  alert("you wrote: " + answer);
     //  }
     return answer;
-}
+}*/
 
 
 
 
-function playRound(){
+function playRound(getPlayerSelection){
 
-    let playerSelection = getPlayerSelection();
+    let playerSelection = getPlayerSelection;/*getPlayerSelection();*/
     let computerSelection = getComputerChoice();
+
+    let resultContainer = document.getElementById("resultContainer");
 
     // Convert playerSelection to lowercase for case-insensitive comparison
     let lowerCaseSelection = playerSelection.toLowerCase();
@@ -35,51 +37,51 @@ function playRound(){
     switch (lowerCaseSelection){
         case "rock":
             if(computerSelection === "Paper"){
-                console.log("You lose! Paper beats Rock");
+                resultContainer.innerHTML = "You lose! Paper beats Rock";
                 return 0;
             } else if (computerSelection === "Scissor"){
-                console.log("You Win! Rock beats Scissor");
+                resultContainer.innerHTML = "You Win! Rock beats Scissor";
                 return 1;
             } else if (computerSelection === "Rock"){
-                console.log("It's tie !");
+                resultContainer.innerHTML = "It's tie !";
                 return 2;
             } else{
-                console.log("Il y a un problème il faut recommencer");
+                resultContainer = "Il y a un problème il faut recommencer";
                 break;
             }
         case "paper":
             if (computerSelection === "Rock"){
-                console.log("You Win! Paper beats Rock");
+                resultContainer.innerHTML = "You Win! Paper beats Rock";
                 return 1;
             } else if (computerSelection === "Scissor"){
-                console.log("You lose! Scissor beats paper");
+                resultContainer.innerHTML = "You lose! Scissor beats paper";
                 return 0;
             } else if (computerSelection === "Paper"){
-                console.log("It's a tie!");
+                resultContainer.innerHTML = "It's a tie!";
                 return 2;
             } else {
-                console.log("Il y a un problème il faut recommencer");
+                resultContainer.innerHTML = "Il y a un problème il faut recommencer";
                 break;
             }
         case "scissor":
             if(computerSelection === "Paper"){
-                console.log("You Win! Scissor beats paper");
+                resultContainer.innerHTML = "You Win! Scissor beats paper";
                 return 1;
             } else if (computerSelection === "Rock"){
-                console.log("You lose! Rock beats scissor");
+                resultContainer.innerHTML = "You lose! Rock beats scissor";
                 return 0;
             } else if (computerSelection === "Scissor"){
-                console.log("It's a tie!");
+                resultContainer.innerHTML = "It's a tie!";
                 return 2;
             } else {
-                console.log("Il y a un problème, il faut recommencer");
+                resultContainer.innerHTML = "Il y a un problème, il faut recommencer";
                 break;
             }
 
     }
 }
 
-function game(){
+/*function game(){
     //initalize array for the result of the previous round
     let resultArray = [];
 
@@ -127,5 +129,33 @@ function game(){
     }
 
 }
-
+*/
 //ceci est pour oir si tout marche
+
+// Créer un élément de bouton
+var myButton1 = document.createElement("button");
+var myButton2 = document.createElement("button");
+var myButton3 = document.createElement("button");
+
+// Configurer le texte du bouton
+myButton1.innerHTML = "Scissor";
+myButton2.innerHTML = "Rock";
+myButton3.innerHTML = "Paper";
+
+// Ajouter un gestionnaire d'événements (par exemple, un clic)
+myButton1.addEventListener("click",function(){
+    playRound("Scissor");
+});
+
+myButton2.addEventListener("click",function (){
+    playRound("Rock");
+})
+
+myButton3.addEventListener("click",function(){
+    playRound("Paper");
+})
+
+var buttonContainer = document.getElementById("buttonContainer");
+buttonContainer.appendChild(myButton1);
+buttonContainer.appendChild(myButton2);
+buttonContainer.appendChild(myButton3);
