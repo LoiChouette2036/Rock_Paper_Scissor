@@ -27,6 +27,7 @@ var computerScore = 0;
 var roundsPlayed = 0;
 
 let scoreContainer = document.getElementById("scoreContainer");
+let roundWinner = document.getElementById("roundWinner");
 
 function playRound(getPlayerSelection){
 
@@ -165,7 +166,16 @@ myButton1.addEventListener("click",function(){
     playRound("Scissor");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
     if (roundsPlayed === 5){
-        
+        if(playerScore > computerScore){
+            roundWinner.innerHTML = "Result : You Win !";
+            roundsPlayed = 0;
+        } else if (computerScore > playerScore) {
+            roundWinner.innerHTML = "Result : You Lose!";
+            roundsPlayed = 0;
+        } else {
+            roundWinner.innerHTML = "Result : It's a Tie";
+            roundsPlayed = 0;
+        }
     }
 });
 
@@ -173,11 +183,35 @@ myButton1.addEventListener("click",function(){
 myButton2.addEventListener("click",function (){
     playRound("Rock");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
+    if (roundsPlayed === 5){
+        if(playerScore > computerScore){
+            roundWinner.innerHTML = "Result : You Win !";
+            roundsPlayed = 0;
+        } else if (computerScore > playerScore) {
+            roundWinner.innerHTML = "Result : You Lose!";
+            roundsPlayed = 0;
+        } else {
+            roundWinner.innerHTML = "Result : It's a Tie";
+            roundsPlayed = 0;
+        }
+    }
 });
 
 myButton3.addEventListener("click",function(){
     playRound("Paper");
     scoreContainer.innerHTML = "Player: "+ playerScore+ " - Computer: "+ computerScore;
+    if (roundsPlayed === 5){
+        if(playerScore > computerScore){
+            roundWinner.innerHTML = "Result : You Win !";
+            roundsPlayed = 0;
+        } else if (computerScore > playerScore) {
+            roundWinner.innerHTML = "Result : You Lose!";
+            roundsPlayed = 0;
+        } else {
+            roundWinner.innerHTML = "Result : It's a Tie";
+            roundsPlayed = 0;
+        }
+    }
 });
 
 var buttonContainer = document.getElementById("buttonContainer");
